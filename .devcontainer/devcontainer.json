@@ -1,0 +1,47 @@
+{
+  "name": "Java 21",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21.0.2",
+      "jdkDistro": "graalce",
+      "installMaven": true,
+      "mavenVersion": "3.9.9"
+    },
+    "ghcr.io/ebaskoro/devcontainer-features/sdkman:1": {
+      "candidate": "quarkus",
+      "version": "3.17.6"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "forwardPorts": [
+    8080
+  ],
+  "portsAttributes": {
+    "8080": {
+      "label": "Quarkus"
+    }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "-vscjava.vscode-gradle",
+        "EditorConfig.EditorConfig",
+        "redhat.vscode-xml",
+        "redhat.vscode-quarkus",
+        "ms-vscode.makefile-tools",
+        "humao.rest-client"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+        "java.configuration.maven.userSettings": "/usr/local/sdkman/candidates/maven/current/conf/settings.xml",
+        "maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
+        "maven.executable.options": "-s /usr/local/sdkman/candidates/maven/current/conf/settings.xml"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
