@@ -28,12 +28,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "-vscjava.vscode-gradle",
         "EditorConfig.EditorConfig",
         "redhat.vscode-xml",
         "redhat.vscode-quarkus",
-        "ms-vscode.makefile-tools",
-        "humao.rest-client"
+        "ms-vscode.makefile-tools"
       ],
       "settings": {
         "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
